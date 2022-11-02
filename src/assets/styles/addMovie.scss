@@ -1,0 +1,29 @@
+.addMovie_container {
+   padding-top: 25px;
+   padding-left: 25px;
+   height: 50px;  
+   display: flex;
+}
+
+.addMovie_btn {   
+   margin-left: 850px;
+   color: $moviesDB_Red;
+   font-weight: bold;
+   background-color: $moviesDB_Gray2;
+   padding: 5px;
+   height: 25px;
+   border-radius: 4px;
+}
+
+.addMovie_btn:hover {
+   cursor: pointer;
+   background-color: darken($color: $moviesDB_Gray2, $amount: 10) !important;
+   box-shadow: 1px;
+}
+
+.addMovie_tag {
+   padding: 5px;
+   margin-left: 15px;
+   height: 25px;
+   width: 120px;
+}

@@ -1,0 +1,39 @@
+.searchMovie_button {
+   background-color: $moviesDB_Red;
+   color: white;
+   border-radius: 4px;
+   height: 58px;
+   width: 120px;
+   align-items: center;
+   text-align: center;
+   justify-content: center;
+   display: flex;
+   font-weight: bold;
+   margin-left: 5px;
+
+   &:hover {
+		background-color: darken($color: $moviesDB_Red, $amount: 10) !important;
+		box-shadow: 1px;    
+      cursor: pointer;  
+   }
+}
+
+.searchMovie_container {
+   display: inline-flex;
+   align-items: center;
+   text-align: center;
+   margin-left: auto;
+   margin-right: auto;
+   margin-top:100px
+
+}
+
+.searchMovie_input {
+   height: 54px;
+   width: 600px;
+   border-radius: 4px;
+   background-color: $moviesDB_Gray3;
+   font-size: larger;
+   text-align: right;
+   color: $moviesDB_Gray1;
+}
