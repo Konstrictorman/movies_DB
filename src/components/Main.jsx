@@ -12,7 +12,7 @@ export const Main = () => {
   return (
     <div className='layout_grid'>
       {movies.map((x)=> {
-         return (<Card title={x.title} year={x.year} genders={x.genders} poster={x.poster}/>)
+         return (<Card key={x.title} title={x.title} year={x.year} genders={x.genders} poster={x.poster}/>)
       })}
     </div>
   )

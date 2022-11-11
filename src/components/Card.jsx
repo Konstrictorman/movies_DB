@@ -13,7 +13,7 @@ const Card = props => {
          <div className='card_title'>{title}</div>
          <div className='card_year'>{year}</div>
       </div>
-      <div className='card_genders'>{genders.toString()}</div>
+      <div className='card_genders'>{genders.join(',  ')}</div>
    </div>
     
   )

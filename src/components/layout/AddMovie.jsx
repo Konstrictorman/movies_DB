@@ -4,9 +4,9 @@ export const AddMovie = () => {
   return (
     <div className='addMovie_container '>
       <div className='addMovie_tag '>
-         movies<label style={{fontWeight:'bold'}}>DB</label>
+         movies<span style={{fontWeight:'bold'}}>DB</span>
       </div>
-      <div className='addMovie_btn border'>+ADD MOVIE</div>
+      <button className='addMovie_btn border'>+ADD MOVIE</button>
     </div>
   )
 }

@@ -9,7 +9,7 @@ const ComboBox = props => {
       <select name="options" id="options" className='combo_select'>
          {options.map((x)=> {
             return (
-               <option value={x.id}>{x.label}</option>
+               <option key = {x.id} value={x.id}>{x.label}</option>
             )
          })}
       </select>
