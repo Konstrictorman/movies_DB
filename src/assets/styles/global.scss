@@ -1,0 +1,21 @@
+body {
+   background-color: $moviesDB_Gray1;
+   font-family: 'Montserrat';font-size: 20px;
+}
+
+.border {
+   border: 1px solid white;
+}
+
+.center {
+   margin-left: auto;
+   margin-right: auto;
+   text-align: center;   
+}
+
+.container {
+   display:flex;
+   flex-direction:row;
+   flex-wrap:wrap;   
+}
+

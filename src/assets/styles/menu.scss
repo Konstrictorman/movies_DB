@@ -1,0 +1,22 @@
+.menu_combo {
+   padding: 10px 20px;
+   font-size: medium;
+}
+
+.menu_container {
+   display: flex;
+}
+
+.menu_item {
+   padding: 10px 20px;
+   font-size: medium;
+   &:hover {
+		background-color: darken($color: $moviesDB_Gray1, $amount: 10) !important;
+		box-shadow: 1px;    
+      cursor: pointer;  
+   }   
+}
+
+.menu_right {
+   margin-left: auto;
+}
