@@ -1,0 +1,96 @@
+.modalBox {
+   position: relative;
+   z-index: 0;
+   align-items: center;
+   justify-content: center;
+   margin: auto;   
+	width: 60%;   
+	background-color: $moviesDB_Gray4;
+	//border: 2px solid $moviesDB_Gray3;
+	border-radius: 8px;
+	box-shadow: 24;
+   top: 10px;
+}
+
+.modalFormContainer {
+	padding: 52px;
+	//border: solid white 1px;
+}
+
+.modalFooter {
+	display: flex;
+	padding-right: 55px;
+   padding-bottom: 30px;
+}
+
+.modalHeader {
+	display: flex;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bolder;
+	align-items: center;
+	background-color: $moviesDB_Gray4;
+	color: white;
+	//border: solid white 1px;
+}
+
+.modalInput {
+	background-color:$moviesDB_Gray3;
+	border-radius: 4px;
+}
+
+.modalItem {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	//border: solid white 1px;
+}
+
+.modalLabel {
+	color: $moviesDB_Gray1;
+	font-size: 16px;
+	padding-bottom: 10px;
+   font-family: 'Montserrat';
+   font-style: normal;
+   font-weight: 600;
+   line-height: 20px; 
+   letter-spacing: 0.888889px;
+   text-transform: uppercase;   
+}
+
+.modalResetBtn {
+   //background-color: #F65261 !important;
+   color: #F65261 !important;
+   border: #F65261 solid 2px !important;
+   margin-left: auto !important;
+   width: 180px;
+} 
+
+.modalSubmitBtn {
+   background-color: #F65261 !important;
+   color: white !important;
+   margin-left: 20px !important;
+   width: 180px;
+}
+
+.modalTitle {
+	display: flex;
+	color: white;
+	//font-weight: bold;
+	padding: 20px 55px;
+	//border: solid white 1px;
+	font-family: "Montserrat";
+	font-style: normal;
+	font-weight: 300;
+	font-size: 40px;
+	line-height: 49px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.modalWrapper {
+   overflow:auto;
+   max-height:100vh;
+   display:flex;
+   margin-bottom: 3px;   
+}
