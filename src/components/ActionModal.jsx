@@ -1,5 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Button,
   Grid,
@@ -8,16 +8,16 @@ import {
   Modal,
   Select,
   TextField,
-} from '@mui/material'
-import CloseIcon from '@mui/icons-material/Close'
-import { Box } from '@mui/system'
-import { DatePicker } from '@mui/x-date-pickers/DatePicker'
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
-import esLocale from 'date-fns/locale/es'
-import { useFormik } from 'formik'
-import Checkbox from '@mui/material/Checkbox'
-import { genres } from '../data/genres'
+} from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
+import { Box } from '@mui/system';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import esLocale from 'date-fns/locale/es';
+import { useFormik } from 'formik';
+import Checkbox from '@mui/material/Checkbox';
+import { genres } from '../data/genres';
 
 const css = {
   color: '#6f6F6F',
@@ -26,7 +26,7 @@ const css = {
   fontWeight: 400,
   fontSize: '20px',
   fontFamily: 'Montserrat',
-}
+};
 
 export const ActionModal = ({
   action,
@@ -34,6 +34,8 @@ export const ActionModal = ({
   handleAction,
   handleClose,
   movie,
+  handleOpenDialog,
+  handleDialogState,
 }) => {
   const initialValues = {
     title: '',
@@ -43,21 +45,28 @@ export const ActionModal = ({
     genre: [],
     runtime: 0,
     overview: '',
-  }
+  };
 
   const formik = useFormik({
     initialValues,
     onSubmit: (values) => {
-      console.log(JSON.stringify(values, null, 2))
-      handleAction()
+      console.log(JSON.stringify(values, null, 2));
+      handleAction();
+      handleClose();
+      handleOpenDialog();
+      handleDialogState({
+        title: 'CONGRATULATIONS',
+        msg: 'The movie has been added to the database successfully',
+        isError: false,
+      });
     },
     enableReinitialize: true,
-  })
+  });
 
   const handleChange = (name, value) => {
-    const val = typeof value === 'string' ? value.split(',') : value
-    formik.setFieldValue(name, val)
-  }
+    const val = typeof value === 'string' ? value.split(',') : value;
+    formik.setFieldValue(name, val);
+  };
 
   return (
     <>
@@ -95,7 +104,7 @@ export const ActionModal = ({
                       }}
                       value={formik.values.title}
                       onChange={(e) => {
-                        handleChange('title', e.target.value)
+                        handleChange('title', e.target.value);
                       }}
                     />
                   </div>
@@ -113,7 +122,7 @@ export const ActionModal = ({
                         value={formik.values.releaseDate}
                         className="modalInput"
                         onChange={(newValue) => {
-                          handleChange('releaseDate', newValue)
+                          handleChange('releaseDate', newValue);
                         }}
                         inputProps={{
                           style: css,
@@ -144,7 +153,7 @@ export const ActionModal = ({
                       }}
                       value={formik.values.movieUrl}
                       onChange={(e) => {
-                        handleChange('movieUrl', e.target.value)
+                        handleChange('movieUrl', e.target.value);
                       }}
                     />
                   </div>
@@ -164,7 +173,7 @@ export const ActionModal = ({
                       }}
                       value={formik.values.rating}
                       onChange={(e) => {
-                        handleChange('rating', e.target.value)
+                        handleChange('rating', e.target.value);
                       }}
                     />
                   </div>
@@ -182,7 +191,7 @@ export const ActionModal = ({
                       className="modalInput modalCombo"
                       value={formik.values.genre}
                       onChange={(e) => {
-                        handleChange('genre', e.target.value)
+                        handleChange('genre', e.target.value);
                       }}
                       placeholder="Select Genre"
                       renderValue={(selected) => selected.join(', ')}
@@ -230,7 +239,7 @@ export const ActionModal = ({
                       }}
                       value={formik.values.runtime}
                       onChange={(e) => {
-                        handleChange('runtime', e.target.value)
+                        handleChange('runtime', e.target.value);
                       }}
                     />
                   </div>
@@ -254,7 +263,7 @@ export const ActionModal = ({
                       }}
                       value={formik.values.overview}
                       onChange={(e) => {
-                        handleChange('overview', e.target.value)
+                        handleChange('overview', e.target.value);
                       }}
                     />
                   </div>
@@ -266,7 +275,7 @@ export const ActionModal = ({
             <Button
               color="error"
               variant="outlined"
-              className="mx-2 modalResetBtn"
+              className="mx-2 btnCancel"
               onClick={formik.resetForm}
             >
               RESET
@@ -275,7 +284,7 @@ export const ActionModal = ({
               form="movie-form"
               color="error"
               variant="Contained"
-              className="mx-2 modalSubmitBtn"
+              className="mx-2 btnSubmit"
               type="submit"
               //onClick={handleAction}
             >
@@ -285,12 +294,12 @@ export const ActionModal = ({
         </Box>
       </Modal>
     </>
-  )
-}
+  );
+};
 
 ActionModal.propTypes = {
   action: PropTypes.string.isRequired,
   open: PropTypes.bool.isRequired,
   handleAction: PropTypes.func.isRequired,
   handleClose: PropTypes.func.isRequired,
-}
+};

@@ -1,6 +1,6 @@
-import React from 'react'
-import { movies } from '../data/movies'
-import Card from './Card'
+import React, { useMemo } from 'react';
+import Card from './Card';
+import { getMovies } from './../services/getMovies';
 
 export const Main = () => {
   /*
@@ -8,20 +8,13 @@ export const Main = () => {
       console.log(JSON.stringify(x));
    })
   */
+  const movies = useMemo(() => getMovies(), []);
 
   return (
     <div className="layout_grid">
       {movies.map((x) => {
-        return (
-          <Card
-            key={x.title}
-            title={x.title}
-            year={x.year}
-            genres={x.genders}
-            poster={x.poster}
-          />
-        )
+        return <Card movie={x} key={x.id} />;
       })}
     </div>
-  )
-}
+  );
+};

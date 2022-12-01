@@ -1,27 +1,45 @@
 body {
-   background-color: $moviesDB_Gray1;
-   font-family: 'Montserrat';font-size: 20px;
+  background-color: $moviesDB_Gray1;
+  font-family: 'Montserrat';
+  font-size: 20px;
 }
 
 .border {
-   border: 1px solid white;
+  border: 1px solid white;
+}
+
+.btnCancel {
+  //background-color: #F65261 !important;
+  color: #f65261 !important;
+  border: #f65261 solid 2px !important;
+  margin-left: auto !important;
+  width: 180px;
+}
+
+.btnSubmit {
+  background-color: #f65261 !important;
+  color: white !important;
+  margin-left: 20px !important;
+  width: 180px;
 }
 
 .center {
-   margin-left: auto;
-   margin-right: auto;
-   text-align: center;   
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .container {
-   display:flex;
-   flex-direction:row;
-   flex-wrap:wrap;   
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-
+.left {
+  margin-right: auto !important;
+  text-align: left;
+}
 
 .right {
-   margin-left:auto !important;
+  margin-left: auto !important;
 }
-
