@@ -8,7 +8,7 @@ import { ActionResultDialog } from './ActionResultDialog';
 import { ActionModal } from './ActionModal';
 
 const Card = (props) => {
-  const { movie } = props;
+  const { movie, handleEdit, handleDelete } = props;
   const [showBtn, setShowBtn] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -29,13 +29,8 @@ const Card = (props) => {
     setShowBtn(false);
   };
 
-  const handleEdit = () => {
-    console.log('Editing');
-    handleClose();
-  };
-
-  const handleDelete = () => {
-    console.log('Deleted');
+  const onDelete = () => {
+    handleDelete(movie.id);
     handleClose();
     handleCloseDialog();
   };
@@ -128,7 +123,7 @@ const Card = (props) => {
         message="Are you sure you want to delete this movie?"
       >
         <Button
-          onClick={handleDelete}
+          onClick={onDelete}
           autoFocus
           className="btnSubmit"
           style={{ marginRight: '30px', marginBottom: '30px' }}
@@ -142,7 +137,7 @@ const Card = (props) => {
         handleClose={handleCloseModal}
         handleAction={handleEdit}
         handleOpenDialog={handleOpenDialog}
-        movie={movie}
+        movieId={movie.id}
       />
     </div>
   );

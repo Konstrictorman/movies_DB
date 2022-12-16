@@ -11,8 +11,8 @@ export const AddMovie = () => {
   const handleOpenDialog = () => setOpenDialog(true);
   const handleCloseDialog = () => setOpenDialog(false);
 
-  const addMovie = () => {
-    console.log('Movie added');
+  const addMovie = (movie) => {
+    console.log({ movie }, 'Movie added');
   };
 
   return (

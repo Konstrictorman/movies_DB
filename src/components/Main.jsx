@@ -1,6 +1,10 @@
 import React, { useMemo } from 'react';
 import Card from './Card';
-import { getMovies } from './../services/getMovies';
+import {
+  getMovies,
+  deleteMovie,
+  updateMovie,
+} from '../services/moviesServices';
 
 export const Main = () => {
   /*
@@ -10,10 +14,27 @@ export const Main = () => {
   */
   const movies = useMemo(() => getMovies(), []);
 
+  const handleEdit = (movie) => {
+    console.log('Editing');
+    updateMovie(movie);
+  };
+
+  const handleDelete = (id) => {
+    deleteMovie(id);
+    console.log('Deleted');
+  };
+
   return (
     <div className="layout_grid">
       {movies.map((x) => {
-        return <Card movie={x} key={x.id} />;
+        return (
+          <Card
+            movie={x}
+            key={x.id}
+            handleEdit={handleEdit}
+            handleDelete={handleDelete}
+          />
+        );
       })}
     </div>
   );
