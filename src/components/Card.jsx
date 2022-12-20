@@ -8,17 +8,20 @@ import { ActionResultDialog } from './ActionResultDialog';
 import { ActionModal } from './ActionModal';
 
 const Card = (props) => {
-  const { movie, handleEdit, handleDelete } = props;
+  const { movie } = props;
   const [showBtn, setShowBtn] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-  const [openDialog, setOpenDialog] = useState(false);
-  const [openModal, setOpenModal] = useState(false);
+  const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
+  const [openEditDialog, setOpenEditDialog] = useState(false);
+  const [openEditModal, setOpenEditModal] = useState(false);
 
-  const handleOpenModal = () => setOpenModal(true);
-  const handleCloseModal = () => setOpenModal(false);
-  const handleOpenDialog = () => setOpenDialog(true);
-  const handleCloseDialog = () => setOpenDialog(false);
+  const handleOpenEditModal = () => setOpenEditModal(true);
+  const handleCloseEditModal = () => setOpenEditModal(false);
+  const handleOpenDeleteDialog = () => setOpenDeleteDialog(true);
+  const handleCloseDeleteDialog = () => setOpenDeleteDialog(false);
+  const handleOpenEditDialog = () => setOpenEditDialog(true);
+  const handleCloseEditDialog = () => setOpenEditDialog(false);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -29,10 +32,15 @@ const Card = (props) => {
     setShowBtn(false);
   };
 
-  const onDelete = () => {
-    handleDelete(movie.id);
+  const handleEdit = () => {
+    console.log('Editing');
     handleClose();
-    handleCloseDialog();
+  };
+
+  const handleDelete = () => {
+    console.log('Deleted');
+    handleClose();
+    handleCloseDeleteDialog();
   };
 
   return (
@@ -91,10 +99,13 @@ const Card = (props) => {
               transformOrigin={{ horizontal: 'right', vertical: 'top' }}
               anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
-              <MenuItem onClick={handleOpenModal} className="cardMenuItem">
+              <MenuItem onClick={handleOpenEditModal} className="cardMenuItem">
                 Edit
               </MenuItem>
-              <MenuItem onClick={handleOpenDialog} className="cardMenuItem">
+              <MenuItem
+                onClick={handleOpenDeleteDialog}
+                className="cardMenuItem"
+              >
                 Delete
               </MenuItem>
             </Menu>
@@ -117,13 +128,13 @@ const Card = (props) => {
       </div>
       <div className="card_genders">{movie.genres.join(',  ')}</div>
       <ActionResultDialog
-        open={openDialog}
-        handleClose={handleCloseDialog}
+        open={openDeleteDialog}
+        handleClose={handleCloseDeleteDialog}
         title="DELETE MOVIE"
         message="Are you sure you want to delete this movie?"
       >
         <Button
-          onClick={onDelete}
+          onClick={handleDelete}
           autoFocus
           className="btnSubmit"
           style={{ marginRight: '30px', marginBottom: '30px' }}
@@ -131,12 +142,19 @@ const Card = (props) => {
           CONFIRM
         </Button>
       </ActionResultDialog>
+      <ActionResultDialog
+        open={openEditDialog}
+        handleClose={handleCloseEditDialog}
+        title="CONGRATULATIONS"
+        message="The movie has been updated into the database successfully"
+        type="success"
+      />
       <ActionModal
-        open={openModal}
+        open={openEditModal}
         action="EDIT"
-        handleClose={handleCloseModal}
+        handleClose={handleCloseEditModal}
         handleAction={handleEdit}
-        handleOpenDialog={handleOpenDialog}
+        handleOpenDialog={handleOpenEditDialog}
         movieId={movie.id}
       />
     </div>
