@@ -7,6 +7,36 @@ import MenuItem from '@mui/material/MenuItem';
 import { ActionResultDialog } from './ActionResultDialog';
 import { ActionModal } from './ActionModal';
 
+const css = {
+  elevation: 0,
+  sx: {
+    overflow: 'visible',
+    filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+    mt: 1,
+    '& .MuiAvatar-root': {
+      width: 32,
+      height: 32,
+      ml: -0.5,
+      mr: 1,
+    },
+    backgroundColor: '#232323',
+    color: 'white',
+    '&:before': {
+      content: '""',
+      display: 'block',
+      position: 'absolute',
+      top: 0,
+      right: 14,
+      width: 10,
+      height: 10,
+      color: '#232323',
+      backgroundColor: '#232323',
+      transform: 'translateY(-50%) rotate(45deg)',
+      zIndex: 0,
+    },
+  },
+};
+
 const Card = (props) => {
   const { movie } = props;
   const [showBtn, setShowBtn] = useState(false);
@@ -67,35 +97,7 @@ const Card = (props) => {
               open={open}
               onClose={handleClose}
               onClick={handleClose}
-              PaperProps={{
-                elevation: 0,
-                sx: {
-                  overflow: 'visible',
-                  filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-                  mt: 1,
-                  '& .MuiAvatar-root': {
-                    width: 32,
-                    height: 32,
-                    ml: -0.5,
-                    mr: 1,
-                  },
-                  backgroundColor: '#232323',
-                  color: 'white',
-                  '&:before': {
-                    content: '""',
-                    display: 'block',
-                    position: 'absolute',
-                    top: 0,
-                    right: 14,
-                    width: 10,
-                    height: 10,
-                    color: '#232323',
-                    backgroundColor: '#232323',
-                    transform: 'translateY(-50%) rotate(45deg)',
-                    zIndex: 0,
-                  },
-                },
-              }}
+              PaperProps={css}
               transformOrigin={{ horizontal: 'right', vertical: 'top' }}
               anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >

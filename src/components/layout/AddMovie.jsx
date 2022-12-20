@@ -3,13 +3,13 @@ import { ActionModal } from '../ActionModal';
 import { ActionResultDialog } from '../ActionResultDialog';
 
 export const AddMovie = () => {
-  const [openModal, setOpenModal] = useState(false);
-  const [openDialog, setOpenDialog] = useState(false);
+  const [openAddModal, setOpenAddModal] = useState(false);
+  const [openAddDialog, setOpenAddDialog] = useState(false);
 
-  const handleOpenModal = () => setOpenModal(true);
-  const handleCloseModal = () => setOpenModal(false);
-  const handleOpenDialog = () => setOpenDialog(true);
-  const handleCloseDialog = () => setOpenDialog(false);
+  const handleOpenAddModal = () => setOpenAddModal(true);
+  const handleCloseAddModal = () => setOpenAddModal(false);
+  const handleOpenAddDialog = () => setOpenAddDialog(true);
+  const handleCloseAddDialog = () => setOpenAddDialog(false);
 
   const addMovie = (movie) => {
     console.log({ movie }, 'Movie added');
@@ -20,19 +20,19 @@ export const AddMovie = () => {
       <div className="addMovie_tag ">
         movies<span style={{ fontWeight: 'bold' }}>DB</span>
       </div>
-      <button className="addMovie_btn border" onClick={handleOpenModal}>
+      <button className="addMovie_btn border" onClick={handleOpenAddModal}>
         +ADD MOVIE
       </button>
       <ActionModal
-        open={openModal}
+        open={openAddModal}
         action="ADD"
-        handleClose={handleCloseModal}
+        handleClose={handleCloseAddModal}
         handleAction={addMovie}
-        handleOpenDialog={handleOpenDialog}
+        handleOpenDialog={handleOpenAddDialog}
       />
       <ActionResultDialog
-        open={openDialog}
-        handleClose={handleCloseDialog}
+        open={openAddDialog}
+        handleClose={handleCloseAddDialog}
         title="CONGRATULATIONS"
         message="The movie has been added to the database successfully"
         type="success"

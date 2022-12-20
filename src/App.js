@@ -1,9 +1,9 @@
-import React from 'react'
-import { Layout } from './components/layout/Layout'
-import { Main } from './components/Main'
-import { Menu } from './components/Menu'
-import './App.css'
-import { ErrorBoundary } from './components/ErrorBoundary'
+import React from 'react';
+import { Layout } from './components/layout/Layout';
+import { Main } from './components/Main';
+import { Menu } from './components/Menu';
+import './App.css';
+import { ErrorBoundary } from './components/ErrorBoundary';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         </Layout>
       </ErrorBoundary>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
