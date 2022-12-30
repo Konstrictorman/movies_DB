@@ -1,0 +1,45 @@
+.dialogBox {
+  position: relative;
+  z-index: 0;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 60%;
+  background-color: $moviesDB_Gray4;
+  //border: 2px solid $moviesDB_Gray3;
+  border-radius: 8px;
+  box-shadow: 24;
+  top: 10px;
+}
+
+.dialogIconContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.dialogIcon {
+  font-size: 66px;
+  color: 'white' !important;
+}
+
+.dialogMsg {
+  padding-bottom: 32px;
+  color: 'white' !important;
+}
+
+.dialogTitle {
+  font-size: 40px;
+  margin: 15px 90px 20px 90px;
+  color: 'white' !important;
+  letter-spacing: 4px;
+  font-weight: 300;
+}
+
+.MuiDialog-paper {
+  background-color: #232323;
+  color: white;
+  border-radius: 8px;
+  border: solid #6f6f6f 1px;
+}

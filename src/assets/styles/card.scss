@@ -1,40 +1,64 @@
 .card {
-   //border: 2px solid $moviesDB_Gray1;
-   width: 229px;
-   padding: 20px, 25px;
-   margin: 15px;
-   font-size: small;
+  //border: 2px solid $moviesDB_Gray1;
+  width: 220px;
+  padding: 20px, 25px;
+  margin: 15px;
+  font-size: small;
+}
+
+.cardButton {
+  margin: 6px !important;
+  background-color: $moviesDB_Gray3 !important;
+}
+
+.cardMenuItem {
+  padding: 5px 40px 5px 10px !important;
+  background-color: $moviesDB_Gray4 !important;
+  width: 120px !important;
+  font-size: 12px !important;
+  &:hover {
+    background-color: $moviesDB_Red !important;
+  }
 }
 
 .card_poster {
-   height: 294px;
-   width: 229px;
+  height: 330px;
+  width: 220px;
+  background-size: 220px 330px;
+  margin-left: auto !important;
+  align-items: flex-start;
+  justify-content: end;
+  display: flex;
+
+  &:hover {
+    border: blanchedalmond 1px solid;
+    cursor: pointer;
+  }
 }
 
 .card_top {
-   display: flex;
-   padding: 5 5 0 5;
-   mix-blend-mode: normal;
-   opacity: 0.5;
+  display: flex;
+  padding: 5 5 0 5;
+  mix-blend-mode: normal;
+  opacity: 0.5;
 }
 
-
 .card_genders {
-   display: flex;
-   font-size: smaller;
-   padding: 1px 0px;
-   mix-blend-mode: normal;
-   opacity: 0.7;   
+  display: flex;
+  font-size: smaller;
+  padding: 1px 0px;
+  mix-blend-mode: normal;
+  opacity: 0.7;
 }
 
 .card_year {
-   margin-left: auto;
-   border-radius: 4px;
-   border: solid 1px $moviesDB_Gray1;
-   padding: 2px;
+  margin-left: auto;
+  border-radius: 4px;
+  border: solid 1px $moviesDB_Gray1;
+  padding: 2px;
 }
 
 .card_title {
-   font-weight: bold;
-   text-align: left;
+  font-weight: bold;
+  text-align: left;
 }
