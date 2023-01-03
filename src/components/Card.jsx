@@ -38,7 +38,7 @@ const css = {
 };
 
 const Card = (props) => {
-  const { movie } = props;
+  const { movie, handleDetail } = props;
   const [showBtn, setShowBtn] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -55,6 +55,10 @@ const Card = (props) => {
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
+  };
+
+  const handleCardClick = (event) => {
+    handleDetail(movie);
   };
 
   const handleClose = () => {
@@ -80,6 +84,7 @@ const Card = (props) => {
         className="card_poster"
         onMouseEnter={() => setShowBtn(true)}
         onMouseLeave={() => handleClose()}
+        onClick={handleCardClick}
       >
         {showBtn && (
           <>

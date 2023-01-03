@@ -1,19 +1,27 @@
-import React from 'react';
+import React, { createContext, useState } from 'react';
 import { Layout } from './components/layout/Layout';
 import { Main } from './components/Main';
 import { Menu } from './components/Menu';
+import { Banner } from './components/layout/Banner';
 import './App.css';
 import { ErrorBoundary } from './components/ErrorBoundary';
 
+export const MovieContext = createContext();
+
 function App() {
+  const [movieDetail, setMovieDetail] = useState(null);
+
   return (
     <div className="App">
       <ErrorBoundary>
-        <Layout className="">
-          <Menu className="border" />
-          <div className="layout_hr" />
-          <Main className="border" />
-        </Layout>
+        <MovieContext.Provider value={movieDetail}>
+          <Layout className="">
+            <Banner />
+            <Menu className="border" />
+            <div className="layout_hr" />
+            <Main className="border" handleDetail={setMovieDetail} />
+          </Layout>
+        </MovieContext.Provider>
       </ErrorBoundary>
     </div>
   );

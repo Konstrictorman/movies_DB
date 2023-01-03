@@ -6,7 +6,7 @@ import {
   updateMovie,
 } from '../services/moviesServices';
 
-export const Main = () => {
+export const Main = ({ handleDetail }) => {
   /*
    movies?.forEach((x) => {
       console.log(JSON.stringify(x));
@@ -33,6 +33,7 @@ export const Main = () => {
             key={x.id}
             handleEdit={handleEdit}
             handleDelete={handleDelete}
+            handleDetail={handleDetail}
           />
         );
       })}
