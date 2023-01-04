@@ -2,30 +2,38 @@ import React from 'react';
 import { genres } from './../data/genres';
 import SearchIcon from '@mui/icons-material/Search';
 
-export const MovieDetail = ({ movie }) => {
-  console.log({ movie });
+export const MovieDetail = ({ movie, handleDetail }) => {
+  const handleClick = () => {
+    handleDetail(null);
+  };
+
   return (
     <div className="movie_detail_container">
       <div>
         <div className="movie_detail_top">
           <span>Movies_DB</span>
-          <SearchIcon className="movie_detail_search" />
+          <SearchIcon className="movie_detail_search" onClick={handleClick} />
         </div>
         <div className="movie_detail_main">
-          <diV>
+          <div>
             <img src={movie.poster} className="movie_detail_poster"></img>
-          </diV>
+          </div>
           <div className="movie_detail">
-            <span>{movie.title}</span>
-            <br />
-            <span>{movie.genres.join(',  ')}</span>
-            <br />
-            <span className="movie_detail_year">{movie.year}</span>
-            <span className="movie_detail_year movie_detail_runtime">
-              {movie.runtime}
+            <div className="movie_detail_title">
+              <span>{movie.title}</span>
+              <div className="movie_detail_rating">{movie.rating}</div>
+            </div>
+            <span className="movie_detail_genres">
+              {movie.genres.join(',  ')}
             </span>
             <br />
-            <p>{movie.overview}</p>
+            <div className="movie_detail_year">
+              <span>{movie.year}</span>
+              <span className="movie_detail_year movie_detail_runtime">
+                {movie.runtime} mins.
+              </span>
+            </div>
+            <p className="movie_detail_overview">{movie.overview}</p>
           </div>
         </div>
       </div>

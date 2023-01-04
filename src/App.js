@@ -16,7 +16,7 @@ function App() {
       <ErrorBoundary>
         <MovieContext.Provider value={movieDetail}>
           <Layout className="">
-            <Banner />
+            <Banner handleDetail={setMovieDetail} />
             <Menu className="border" />
             <div className="layout_hr" />
             <Main className="border" handleDetail={setMovieDetail} />

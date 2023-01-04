@@ -6,7 +6,6 @@
   padding-top: 20px;
   color: $moviesDB_White;
   display: flex;
-  border: black solid 1px;
   text-align: left;
   padding-left: 120px;
 }
@@ -20,9 +19,30 @@
   margin-bottom: 20px;
 }
 
+.movie_detail_bottom {
+  height: 15px;
+  background-color: $moviesDB_Gray1;
+}
+
 .movie_detail {
   padding-left: 40px;
   padding-right: 120px;
+}
+
+.movie_detail_rating {
+  border: solid 1px white;
+  border-radius: 50px;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 24.38px;
+  text-align: center;
+  width: 60px;
+  height: 60px;
+  justify-content: center;
+  margin-left: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .movie_detail_year {
@@ -30,17 +50,39 @@
   font-size: 24px;
   line-height: 29.26px;
   color: $moviesDB_Red;
+  margin-top: 30px !important;
+}
+
+.movie_detail_title {
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 48.76px;
+  color: white;
+  display: flex;
+}
+
+.movie_detail_genres {
+  font-size: 14px;
+  line-height: 17.07px;
+  font-weight: 500;
 }
 
 .movie_detail_main {
   display: flex;
-  border: black solid 1px;
 }
 
 .movie_detail_search {
   margin-left: 850px;
+  cursor: pointer;
 }
 
 .movie_detail_runtime {
-  margin-left: 20px;
+  margin-left: 60px;
+}
+
+.movie_detail_overview {
+  font-size: 20px;
+  line-height: 24.38px;
+  font-weight: 300;
+  color: $moviesDB_Gray0;
 }

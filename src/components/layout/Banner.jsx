@@ -4,11 +4,16 @@ import { SearchMovie } from './SearchMovie';
 import { MovieContext } from '../../App';
 import { MovieDetail } from '../MovieDetail';
 
-export const Banner = () => {
+export const Banner = ({ handleDetail }) => {
   const movieDetail = useContext(MovieContext);
 
   if (movieDetail) {
-    return <MovieDetail movie={movieDetail} />;
+    return (
+      <>
+        <MovieDetail movie={movieDetail} handleDetail={handleDetail} />
+        <div className="movie_detail_bottom">{''}</div>
+      </>
+    );
   }
 
   return (
