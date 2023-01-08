@@ -1,7 +1,10 @@
 import { movies } from '../data/movies';
+import { getMovies_api } from '../api/moviesApi';
 
-export const getMovies = () => {
-  return movies;
+export const getMovies = async () => {
+  const { data } = await getMovies_api();
+  console.log(data);
+  return data;
 };
 
 export const getMovieById = (id) => {

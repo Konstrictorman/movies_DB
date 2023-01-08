@@ -14,12 +14,12 @@ function App() {
   return (
     <div className="App">
       <ErrorBoundary>
-        <MovieContext.Provider value={movieDetail}>
+        <MovieContext.Provider value={[movieDetail, setMovieDetail]}>
           <Layout className="">
-            <Banner handleDetail={setMovieDetail} />
+            <Banner />
             <Menu className="border" />
             <div className="layout_hr" />
-            <Main className="border" handleDetail={setMovieDetail} />
+            <Main className="border" />
           </Layout>
         </MovieContext.Provider>
       </ErrorBoundary>

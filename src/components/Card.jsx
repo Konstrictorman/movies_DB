@@ -38,7 +38,7 @@ const css = {
 };
 
 const Card = (props) => {
-  const { movie, handleDetail } = props;
+  const { movie, setMovieForDetails } = props;
   const [showBtn, setShowBtn] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -58,7 +58,7 @@ const Card = (props) => {
   };
 
   const handleCardClick = (event) => {
-    handleDetail(movie);
+    setMovieForDetails(movie);
   };
 
   const handleClose = () => {
@@ -80,7 +80,7 @@ const Card = (props) => {
   return (
     <div className="card">
       <div
-        style={{ backgroundImage: `url('${movie.poster}')` }}
+        style={{ backgroundImage: `url('${movie.poster_path}')` }}
         className="card_poster"
         onMouseEnter={() => setShowBtn(true)}
         onMouseLeave={() => handleClose()}
@@ -122,15 +122,16 @@ const Card = (props) => {
 
       <div className="card_top">
         <div className="card_title">{movie.title}</div>
-        <div className="card_year">{movie.year}</div>
+        <div className="card_year">{movie.release_date}</div>
       </div>
       <div className="left">
         <Rating
           name="rating"
-          value={movie.rating}
+          value={movie.vote_average}
           precision={0.1}
           readOnly
           size="small"
+          max={10}
         />
       </div>
       <div className="card_genders">{movie.genres.join(',  ')}</div>

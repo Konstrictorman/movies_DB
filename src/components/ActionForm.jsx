@@ -105,7 +105,7 @@ export const ActionForm = ({
                 >
                   <DatePicker
                     id="releaseDate"
-                    value={formik.values.releaseDate}
+                    value={formik.values.release_date}
                     className="modalInput"
                     onChange={(newValue) => {
                       handleChange('releaseDate', newValue);
@@ -137,7 +137,7 @@ export const ActionForm = ({
                   inputProps={{
                     style: css,
                   }}
-                  value={formik.values.movieUrl}
+                  value={formik.values.poster_path}
                   onChange={(e) => {
                     handleChange('movieUrl', e.target.value);
                   }}
@@ -157,7 +157,7 @@ export const ActionForm = ({
                   inputProps={{
                     style: css,
                   }}
-                  value={formik.values.rating}
+                  value={formik.values.vote_average}
                   onChange={(e) => {
                     handleChange('rating', e.target.value);
                   }}

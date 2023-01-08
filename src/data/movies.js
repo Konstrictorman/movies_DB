@@ -2,11 +2,11 @@ export const movies = [
   {
     id: 1,
     title: 'Pulp Fiction',
-    year: '1994',
+    release_date: '1994',
     genres: ['Action', 'Adventure'],
-    poster:
+    poster_path:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu3qyJnUvAYMFlfT0ic4pxSGkKk1zNOtUGD3x4DoxOQqV9nRzWd9zv98h4AujHLiv94FU&usqp=CAU',
-    rating: 5.0,
+    vote_average: 5.0,
     runtime: 154,
     movieUrl: 'https://www.imdb.com/title/tt0110912/?ref_=nv_sr_srsg_0',
     overview:
@@ -15,10 +15,11 @@ export const movies = [
   {
     id: 2,
     title: 'Reservoir dogs',
-    year: '1992',
+    release_date: '1992',
     genres: ['Action', 'Adventure'],
-    poster: 'https://es.web.img3.acsta.net/pictures/21/05/25/13/54/5939417.jpg',
-    rating: 4.0,
+    poster_path:
+      'https://es.web.img3.acsta.net/pictures/21/05/25/13/54/5939417.jpg',
+    vote_average: 4.0,
     runtime: 99,
     movieUrl: 'https://www.imdb.com/title/tt0105236/?ref_=nv_sr_srsg_0',
     overview:
@@ -27,11 +28,11 @@ export const movies = [
   {
     id: 3,
     title: 'Jackie Brown',
-    year: '1997',
+    release_date: '1997',
     genres: ['Action', 'Adventure'],
-    poster:
+    poster_path:
       'https://cl.buscafs.com/www.tomatazos.com/public/uploads/images/3847/3847_800x1209.jpg',
-    rating: 3.5,
+    vote_average: 3.5,
     runtime: 154,
     movieUrl: 'https://www.imdb.com/title/tt0119396/?ref_=nv_sr_srsg_0',
     overview:
@@ -40,11 +41,11 @@ export const movies = [
   {
     id: 4,
     title: 'Inglourious basterds',
-    year: '2009',
+    release_date: '2009',
     genres: ['Action', 'Adventure'],
-    poster:
+    poster_path:
       'https://showmax.akamaized.net/i/dcdebf6d-71a1-4dc4-badf-7342f56cb22a/400x',
-    rating: 4.5,
+    vote_average: 4.5,
     runtime: 153,
     movieUrl: 'https://www.imdb.com/title/tt0361748/?ref_=nv_sr_srsg_1',
     overview:
@@ -53,11 +54,11 @@ export const movies = [
   {
     id: 5,
     title: 'From dusk till dawn',
-    year: '1996',
+    release_date: '1996',
     genres: ['Action', 'Adventure'],
-    poster:
+    poster_path:
       'https://m.media-amazon.com/images/M/MV5BZjk3YmZhMDAtOWUzMS00YjE5LTkxNzAtY2I1NGZjMDA2ZTk0XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg',
-    rating: 3.8,
+    vote_average: 3.8,
     runtime: 108,
     movieUrl: 'https://www.imdb.com/title/tt0116367/?ref_=nv_sr_srsg_0',
     overview:
@@ -66,11 +67,11 @@ export const movies = [
   {
     id: 6,
     title: 'The english patient',
-    year: '1996',
+    release_date: '1996',
     genres: ['Drama'],
-    poster:
-      'https://upload.wikimedia.org/wikipedia/en/thumb/b/bd/The_English_Patient_Poster.jpg/220px-The_English_Patient_Poster.jpg',
-    rating: 4.3,
+    poster_path:
+      'https://upload.wikimedia.org/wikipedia/en/thumb/b/bd/The_English_Patient_poster_path.jpg/220px-The_English_Patient_poster_path.jpg',
+    vote_average: 4.3,
     runtime: 162,
     movieUrl: 'https://www.imdb.com/title/tt0116209/?ref_=nv_sr_srsg_0',
     overview:
@@ -79,11 +80,11 @@ export const movies = [
   {
     id: 7,
     title: 'Saving private Ryan',
-    year: '1998',
+    release_date: '1998',
     genres: ['Drama', 'Action'],
-    poster:
+    poster_path:
       'https://m.media-amazon.com/images/M/MV5BZjhkMDM4MWItZTVjOC00ZDRhLThmYTAtM2I5NzBmNmNlMzI1XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_FMjpg_UX1000_.jpg',
-    rating: 5.0,
+    vote_average: 5.0,
     runtime: 169,
     movieUrl: 'https://www.imdb.com/title/tt0120815/?ref_=nv_sr_srsg_0',
     overview:
@@ -92,11 +93,11 @@ export const movies = [
   {
     id: 8,
     title: "There's something about Mary",
-    year: '1998',
+    release_date: '1998',
     genres: ['Comedy'],
-    poster:
+    poster_path:
       'https://m.media-amazon.com/images/M/MV5BZWFlZjE5OTYtNWY0ZC00MzgzLTg5MjUtYTFkZjk2NjJkYjM0XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg',
-    rating: 4.0,
+    vote_average: 4.0,
     runtime: 119,
     movieUrl: 'https://www.imdb.com/title/tt0129387/?ref_=nv_sr_srsg_0',
     overview:
@@ -105,11 +106,11 @@ export const movies = [
   {
     id: 9,
     title: 'Little man',
-    year: '2006',
+    release_date: '2006',
     genres: ['Comedy'],
-    poster:
+    poster_path:
       'https://m.media-amazon.com/images/M/MV5BMTI0NTA3MjI3NV5BMl5BanBnXkFtZTcwNTI1ODYzMQ@@._V1_.jpg',
-    rating: 2.0,
+    vote_average: 2.0,
     runtime: 98,
     movieUrl: 'https://www.imdb.com/title/tt0430304/?ref_=fn_al_tt_1',
     overview:
@@ -118,11 +119,11 @@ export const movies = [
   {
     id: 10,
     title: 'Avengers: Endgame',
-    year: '2019',
+    release_date: '2019',
     genres: ['Action', 'Adventure'],
-    poster:
-      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/poster-vengadores-endgame-1552567490.jpg',
-    rating: 4.0,
+    poster_path:
+      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/poster_path-vengadores-endgame-1552567490.jpg',
+    vote_average: 4.0,
     runtime: 181,
     movieUrl: 'https://www.imdb.com/title/tt4154796/?ref_=nv_sr_srsg_0',
     overview:
@@ -131,10 +132,10 @@ export const movies = [
   {
     id: 11,
     title: 'Natural born killers',
-    year: '1994',
+    release_date: '1994',
     genres: ['Action', 'Drama', 'Crime'],
-    poster: 'https://m.media-amazon.com/images/I/51lAdmznIHL.jpg',
-    rating: 4.5,
+    poster_path: 'https://m.media-amazon.com/images/I/51lAdmznIHL.jpg',
+    vote_average: 4.5,
     runtime: 119,
     movieUrl: 'https://www.imdb.com/title/tt0110632/?ref_=nv_sr_srsg_0',
     overview:
@@ -143,13 +144,13 @@ export const movies = [
   {
     id: 12,
     title: 'The departed',
-    year: '2006',
+    release_date: '2006',
     genres: ['Drama', 'Crime'],
-    poster: 'https://m.media-amazon.com/images/I/510gCMld+uL._AC_.jpg',
-    rating: 4.5,
+    poster_path: 'https://m.media-amazon.com/images/I/510gCMld+uL._AC_.jpg',
+    vote_average: 4.5,
     runtime: 151,
     movieUrl: 'https://www.imdb.com/title/tt0407887/?ref_=nv_sr_srsg_0',
     overview:
-      'An undercover cop and a mole in the police attempt to identify each other while infiltrating an Irish gang in South Boston.',
+      'An undercover cop and a mole in the police attempt to identify each other while infiltvote_average an Irish gang in South Boston.',
   },
 ];

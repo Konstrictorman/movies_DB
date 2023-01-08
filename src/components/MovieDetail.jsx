@@ -16,19 +16,19 @@ export const MovieDetail = ({ movie, handleDetail }) => {
         </div>
         <div className="movie_detail_main">
           <div>
-            <img src={movie.poster} className="movie_detail_poster"></img>
+            <img src={movie.poster_path} className="movie_detail_poster"></img>
           </div>
           <div className="movie_detail">
             <div className="movie_detail_title">
               <span>{movie.title}</span>
-              <div className="movie_detail_rating">{movie.rating}</div>
+              <div className="movie_detail_rating">{movie.vote_average}</div>
             </div>
             <span className="movie_detail_genres">
               {movie.genres.join(',  ')}
             </span>
             <br />
             <div className="movie_detail_year">
-              <span>{movie.year}</span>
+              <span>{movie.release_date}</span>
               <span className="movie_detail_year movie_detail_runtime">
                 {movie.runtime} mins.
               </span>
