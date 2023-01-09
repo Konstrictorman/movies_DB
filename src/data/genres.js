@@ -28,15 +28,19 @@ export const genres = [
     value: 'Horror',
   },
   {
+    name: 'MYSTERY',
+    value: 'Mystery',
+  },
+  {
     name: 'ROMANCE',
     value: 'Romance',
   },
   {
     name: 'SCI-FI',
-    value: 'Sci-Fi',
+    value: 'Science Fiction',
   },
   {
     name: 'THRILLER',
     value: 'Thriller',
   },
-]
+];

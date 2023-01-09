@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
@@ -7,6 +7,12 @@ import esLocale from 'date-fns/locale/es';
 import { Button, Grid, MenuItem, Select, TextField } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
 import { genres } from '../data/genres';
+import { CustomNumberFormat } from './custom/CustomNumberFormat';
+import { format } from 'date-fns';
+import { addMovie, updateMovie } from './../services/moviesServices';
+import { ActionResultDialog } from './ActionResultDialog';
+import ClipLoader from 'react-spinners/ClipLoader';
+import { useCustomDialog } from './custom/useCustomDialog';
 
 const css = {
   color: '#6f6F6F',
@@ -17,37 +23,122 @@ const css = {
   fontFamily: 'Montserrat',
 };
 
+const override = {
+  display: 'block',
+  margin: '0 auto',
+  borderColor: 'white',
+};
+
 export const ActionForm = ({
   movie,
+  setMovie,
   action,
-  handleAction,
   handleClose,
-  handleOpenDialog,
+  //handleOpenDialog,
   handleDialogState,
 }) => {
   const formik = useFormik({
     initialValues: movie,
     onSubmit: (values) => {
       handleSubmit(values);
+      formik.resetForm();
     },
     enableReinitialize: true,
   });
 
+  const [loading, setLoading] = useState(false);
+  const [
+    dialogState,
+    setDialogState,
+    handleOpenResultDialog,
+    handleCloseResultDialog,
+    setActionBtnVisibility,
+  ] = useCustomDialog();
+  const { d_title, d_message, d_type, d_open, d_actionBtn } = dialogState;
+
   const handleSubmit = (values) => {
-    console.log(JSON.stringify(values, null, 2));
-    handleAction(values);
-    handleClose();
-    handleReset();
-    handleOpenDialog();
+    console.log({ values });
+    if (values.id) {
+      handleEditMovie(values);
+    } else {
+      handleAddMovie(values);
+    }
+
+    //handleClose();
+    formik.resetForm();
+    //handleOpenDialog();
+  };
+
+  const handleEditMovie = (movie) => {
+    console.log('Editing', movie);
+
+    if (movie) {
+      setLoading(true);
+      updateMovie(movie)
+        .then((response) => {
+          setDialogState({
+            d_type: 'success',
+            d_message:
+              'The movie has been updated into the database successfully',
+            d_title: 'Congratulations',
+            d_open: true,
+            d_actionBtn: false,
+          });
+          setMovie(response.data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          setDialogState({
+            d_type: 'error',
+            d_message: `The movie couln't be updated due to error: ${err} : ${err.response.data.messages[0]}`,
+            d_title: 'Bad news',
+            d_open: true,
+            d_actionBtn: false,
+          });
+          setLoading(false);
+        });
+      /*
+      setLoading(false);
+      
+      handleOpenResultDialog();
+      */
+    }
+  };
+
+  const handleAddMovie = (movie) => {
+    console.log('adding', movie);
+    if (movie) {
+      addMovie(movie)
+        .then((response) => {
+          setDialogState({
+            d_type: 'success',
+            d_message: 'The movie has been added to the database successfully',
+            d_title: 'Congratulations',
+            d_open: true,
+            d_actionBtn: false,
+          });
+        })
+        .catch((err) => {
+          console.log({ err });
+          setDialogState({
+            d_type: 'error',
+            d_message: `The movie couln't be added due to error: ${err} : ${err.response?.data?.messages[0]}`,
+            d_title: 'Bad news',
+            d_open: true,
+            d_actionBtn: false,
+          });
+          setLoading(false);
+        });
+    }
   };
 
   const handleChange = (name, value) => {
-    const val = typeof value === 'string' ? value.split(',') : value;
+    //const val = typeof value === 'string' ? value.split(',') : value;
+    let val = value;
+    if (name === 'release_date') {
+      val = format(value, 'yyyy-MM-dd');
+    }
     formik.setFieldValue(name, val);
-  };
-
-  const handleReset = () => {
-    formik.resetForm();
   };
 
   const secondaryBtn =
@@ -71,6 +162,14 @@ export const ActionForm = ({
       </Button>
     );
 
+  if (loading) {
+    return (
+      <>
+        <ClipLoader size={150} loading={loading} cssOverride={override} />
+      </>
+    );
+  }
+
   return (
     <>
       <div className="modalFormContainer">
@@ -89,9 +188,7 @@ export const ActionForm = ({
                     style: css,
                   }}
                   value={formik.values.title}
-                  onChange={(e) => {
-                    handleChange('title', e.target.value);
-                  }}
+                  onChange={formik.handleChange}
                 />
               </div>
             </Grid>
@@ -104,11 +201,13 @@ export const ActionForm = ({
                   adapterLocale={esLocale}
                 >
                   <DatePicker
-                    id="releaseDate"
+                    id="release_date"
                     value={formik.values.release_date}
                     className="modalInput"
+                    name="release_date"
+                    inputFormat="yyyy-MM-dd"
                     onChange={(newValue) => {
-                      handleChange('releaseDate', newValue);
+                      handleChange('release_date', newValue);
                     }}
                     inputProps={{
                       style: css,
@@ -128,9 +227,9 @@ export const ActionForm = ({
               <div className="modalItem">
                 <label className="modalLabel">MOVIE URL</label>
                 <TextField
-                  id="movieUrl"
+                  id="poster_path"
                   type="text"
-                  name="movieUrl"
+                  name="poster_path"
                   size="normal"
                   className="modalInput"
                   placeholder="http://"
@@ -138,9 +237,7 @@ export const ActionForm = ({
                     style: css,
                   }}
                   value={formik.values.poster_path}
-                  onChange={(e) => {
-                    handleChange('movieUrl', e.target.value);
-                  }}
+                  onChange={formik.handleChange}
                 />
               </div>
             </Grid>
@@ -149,18 +246,18 @@ export const ActionForm = ({
               <div className="modalItem">
                 <label className="modalLabel">RATING</label>
                 <TextField
-                  id="rating"
+                  id="vote_average"
                   type="number"
-                  name="rating"
+                  name="vote_average"
                   size="normal"
                   className="modalInput"
                   inputProps={{
                     style: css,
+                    step: 0.1,
+                    inputcomponent: CustomNumberFormat,
                   }}
                   value={formik.values.vote_average}
-                  onChange={(e) => {
-                    handleChange('rating', e.target.value);
-                  }}
+                  onChange={formik.handleChange}
                 />
               </div>
             </Grid>
@@ -224,9 +321,7 @@ export const ActionForm = ({
                     style: css,
                   }}
                   value={formik.values.runtime}
-                  onChange={(e) => {
-                    handleChange('runtime', e.target.value);
-                  }}
+                  onChange={formik.handleChange}
                 />
               </div>
             </Grid>
@@ -248,9 +343,7 @@ export const ActionForm = ({
                     style: css,
                   }}
                   value={formik.values.overview}
-                  onChange={(e) => {
-                    handleChange('overview', e.target.value);
-                  }}
+                  onChange={formik.handleChange}
                 />
               </div>
             </Grid>
@@ -265,11 +358,18 @@ export const ActionForm = ({
           variant="Contained"
           className="mx-2 btnSubmit"
           type="submit"
-          //onClick={handleAction}
+          //onClick={handleEdit}
         >
           SUBMIT
         </Button>
       </div>
+      <ActionResultDialog
+        open={d_open}
+        handleClose={handleCloseResultDialog}
+        title={d_title}
+        message={d_message}
+        type={d_type}
+      />
     </>
   );
 };
