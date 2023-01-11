@@ -54,7 +54,7 @@ export const ActionForm = ({
     handleCloseResultDialog,
     setActionBtnVisibility,
   ] = useCustomDialog();
-  const { d_title, d_message, d_type, d_open, d_actionBtn } = dialogState;
+  const { dTitle, dMessage, dType, dOpen, d_actionBtn } = dialogState;
 
   const handleSubmit = (values) => {
     console.log({ values });
@@ -77,23 +77,23 @@ export const ActionForm = ({
       updateMovie(movie)
         .then((response) => {
           setDialogState({
-            d_type: 'success',
-            d_message:
+            dType: 'success',
+            dMessage:
               'The movie has been updated into the database successfully',
-            d_title: 'Congratulations',
-            d_open: true,
-            d_actionBtn: false,
+            dTitle: 'Congratulations',
+            dOpen: true,
+            dActionBtn: false,
           });
           setMovie(response.data);
           setLoading(false);
         })
         .catch((err) => {
           setDialogState({
-            d_type: 'error',
-            d_message: `The movie couln't be updated due to error: ${err} : ${err.response.data.messages[0]}`,
-            d_title: 'Bad news',
-            d_open: true,
-            d_actionBtn: false,
+            dType: 'error',
+            dMessage: `The movie couln't be updated due to error: ${err} : ${err.response.data.messages[0]}`,
+            dTitle: 'Bad news',
+            dOpen: true,
+            dActionBtn: false,
           });
           setLoading(false);
         });
@@ -111,21 +111,21 @@ export const ActionForm = ({
       addMovie(movie)
         .then((response) => {
           setDialogState({
-            d_type: 'success',
-            d_message: 'The movie has been added to the database successfully',
-            d_title: 'Congratulations',
-            d_open: true,
-            d_actionBtn: false,
+            dType: 'success',
+            dMessage: 'The movie has been added to the database successfully',
+            dTitle: 'Congratulations',
+            dOpen: true,
+            dActionBtn: false,
           });
         })
         .catch((err) => {
           console.log({ err });
           setDialogState({
-            d_type: 'error',
-            d_message: `The movie couln't be added due to error: ${err} : ${err.response?.data?.messages[0]}`,
-            d_title: 'Bad news',
-            d_open: true,
-            d_actionBtn: false,
+            dType: 'error',
+            dMessage: `The movie couln't be added due to error: ${err} : ${err.response?.data?.messages[0]}`,
+            dTitle: 'Bad news',
+            dOpen: true,
+            dActionBtn: false,
           });
           setLoading(false);
         });
@@ -364,11 +364,11 @@ export const ActionForm = ({
         </Button>
       </div>
       <ActionResultDialog
-        open={d_open}
+        open={dOpen}
         handleClose={handleCloseResultDialog}
-        title={d_title}
-        message={d_message}
-        type={d_type}
+        title={dTitle}
+        message={dMessage}
+        type={dType}
       />
     </>
   );

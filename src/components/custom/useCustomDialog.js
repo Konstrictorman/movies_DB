@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
 const defaultValues = {
-  d_title: 'Ooops',
-  d_message: 'Something went wrong',
-  d_type: 'error',
-  d_open: false,
-  d_actionBtn: false,
+  dTitle: 'Ooops',
+  dMessage: 'Something went wrong',
+  dType: 'error',
+  dOpen: false,
+  dActionBtn: false,
 };
 
 export const useCustomDialog = (initialState = { defaultValues }) => {
@@ -14,7 +14,7 @@ export const useCustomDialog = (initialState = { defaultValues }) => {
   const handleOpenResultDialog = () => {
     setDialogState({
       ...dialogState,
-      d_open: true,
+      dOpen: true,
     });
   };
 
@@ -22,7 +22,7 @@ export const useCustomDialog = (initialState = { defaultValues }) => {
     /*
     setDialogState({
       ...dialogState,
-      d_open: false,
+      dOpen: false,
     });
     */
     setDialogState(initialState);
@@ -31,7 +31,7 @@ export const useCustomDialog = (initialState = { defaultValues }) => {
   const setActionBtnVisibility = (show) => {
     setDialogState({
       ...dialogState,
-      d_actionBtn: { show },
+      dActionBtn: { show },
     });
   };
 

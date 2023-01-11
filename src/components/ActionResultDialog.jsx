@@ -61,7 +61,6 @@ export const ActionResultDialog = ({
                 fontSize="66px"
                 htmlColor="#f65261"
                 style={{ foregroundColor: 'white' }}
-                outlined
               />
             )}
             {type === 'error' && (
@@ -70,7 +69,6 @@ export const ActionResultDialog = ({
                 fontSize="66px"
                 htmlColor="#f65261"
                 style={{ foregroundColor: 'white' }}
-                outlined
               />
             )}
             {type === 'confirmation' && (
@@ -79,7 +77,6 @@ export const ActionResultDialog = ({
                 fontSize="66px"
                 htmlColor="#f65261"
                 style={{ foregroundColor: 'white' }}
-                outlined
               />
             )}
 

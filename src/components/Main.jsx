@@ -27,10 +27,10 @@ export const Main = () => {
   };
 
   const defaultValues = {
-    d_title: 'DELETE MOVIE',
-    d_message: 'Are you sure you want to delete this movie?',
-    d_type: 'confirmation',
-    d_open: false,
+    dTitle: 'DELETE MOVIE',
+    dMessage: 'Are you sure you want to delete this movie?',
+    dType: 'confirmation',
+    dOpen: false,
     d_actionBtn: true,
   };
 
@@ -42,8 +42,8 @@ export const Main = () => {
     setActionBtnVisibility,
   ] = useCustomDialog(defaultValues);
 
-  const { d_title, d_message, d_type, d_open, d_actionBtn } = dialogState;
-  //console.log(d_title, d_message, d_type, d_open, d_actionBtn);
+  const { dTitle, dMessage, dType, dOpen, d_actionBtn } = dialogState;
+  //console.log(dTitle, dMessage, dType, dOpen, d_actionBtn);
   /*
   const handleOpenDeleteDialog = () => setOpenDeleteDialog(true);
   const handleCloseDeleteDialog = () => setOpenDeleteDialog(false);
@@ -78,11 +78,11 @@ export const Main = () => {
       deleteMovie(id)
         .then((response) => {
           setDialogState({
-            d_type: 'success',
-            d_message:
+            dType: 'success',
+            dMessage:
               'The movie has been deleted from the database successfully',
-            d_title: 'Congratulations',
-            d_open: true,
+            dTitle: 'Congratulations',
+            dOpen: true,
             d_actionBtn: false,
           });
           const index = movies.findIndex((x) => x.id === id);
@@ -94,10 +94,10 @@ export const Main = () => {
         .catch((err) => {
           console.log({ err });
           setDialogState({
-            d_type: 'error',
-            d_message: `The movie couln't be deleted due to error: ${err} : ${err.response?.data?.messages[0]}`,
-            d_title: 'Bad news',
-            d_open: true,
+            dType: 'error',
+            dMessage: `The movie couln't be deleted due to error: ${err} : ${err.response?.data?.messages[0]}`,
+            dTitle: 'Bad news',
+            dOpen: true,
             d_actionBtn: false,
           });
           setLoading(false);
@@ -126,11 +126,11 @@ export const Main = () => {
         );
       })}
       <ActionResultDialog
-        open={d_open}
+        open={dOpen}
         handleClose={handleCloseResultDialog}
-        title={d_title}
-        message={d_message}
-        type={d_type}
+        title={dTitle}
+        message={dMessage}
+        type={dType}
       >
         {d_actionBtn && (
           <Button
