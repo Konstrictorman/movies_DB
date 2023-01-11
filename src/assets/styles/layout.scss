@@ -1,86 +1,84 @@
 .layout_banner {
-   background-color: black;
-   height: 396px;
-   width: 1200px;
-   //left: 58px;
-   align-self: center;
-   margin-bottom: 10px;
-   margin-top: 50px;
-   color:$moviesDB_White;
-   background-image: url('https://i.blogs.es/50c5c1/netflix-catalogo/1366_521.jpeg');
-   background-color: transparent;
-   display: block;
+  background-color: black;
+  height: 396px;
+  width: 1200px;
+  //left: 58px;
+  align-self: center;
+  margin-top: 50px;
+  color: $moviesDB_White;
+  background-image: url('https://i.blogs.es/50c5c1/netflix-catalogo/1366_521.jpeg');
+  background-color: transparent;
+  display: block;
 }
 
 .layout_banner_background {
-   filter: blur(4.07742px);
-   opacity: 0.3;
-   mix-blend-mode: normal;   
-   width: 100%;
-   height: auto;
-   object-fit: contain;   
+  filter: blur(4.07742px);
+  opacity: 0.3;
+  mix-blend-mode: normal;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .layout_banner_button {
-   position: absolute;
-   height: 24px;
-   left: 10.17%;
-   right: 10.17%;
-   top: 74px;
-   width: 200px;
-   text-align: center;
-   
-   font-family: 'Montserrat';
-   font-style: normal;
-   font-weight: 600;
-   font-size: 20px;
-   line-height: 24px;
-   text-align: right;
-   text-transform: uppercase;
-   
-   color:$moviesDB_Red;
-   justify-content: flex-end;
+  position: absolute;
+  height: 24px;
+  left: 10.17%;
+  right: 10.17%;
+  top: 74px;
+  width: 200px;
+  text-align: center;
+
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: right;
+  text-transform: uppercase;
+
+  color: $moviesDB_Red;
+  justify-content: flex-end;
 }
 
 .layout_container {
-   display: flex;
-   flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .layout_banner_tag {
-   position:absolute;
-   left: 118px;
-   top:74px;
+  position: absolute;
+  left: 118px;
+  top: 74px;
 }
 
 .layout_footer {
-   display: flex;
-   background-color: $moviesDB_Gray2;
-   text-align: center;
-   width: 1200px;
-   height: 70px;
-   justify-content: center;
-   color:$moviesDB_Gray1;
-   align-items: center;
+  display: flex;
+  background-color: $moviesDB_Gray2;
+  text-align: center;
+  width: 1200px;
+  height: 70px;
+  justify-content: center;
+  color: $moviesDB_Gray1;
+  align-items: center;
 }
 
 .layout_hr {
-   height: 1px;
-   width: auto;
-   //background-color: white !important;
-   border: 0.5px solid #080707;
+  height: 1px;
+  width: auto;
+  //background-color: white !important;
+  border: 0.5px solid #080707;
 }
 
-
 .layout_main {
-   background-color: $moviesDB_Gray3;
-   width: 1200px;
-   color: $moviesDB_White;
+  background-color: $moviesDB_Gray3;
+  width: 1200px;
+  color: $moviesDB_White;
 }
 
 .layout_grid {
-   display: flex;
-   margin: 25px 20px 0px 20px;
-   flex-wrap: wrap;
-   justify-content: center;   
+  display: flex;
+  margin: 25px 20px 0px 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }

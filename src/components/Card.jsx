@@ -4,8 +4,7 @@ import { Button, IconButton, Rating } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { ActionResultDialog } from './ActionResultDialog';
-import { ActionModal } from './ActionModal';
+import { useMovieContext } from './custom/useMovieContext';
 
 const css = {
   elevation: 0,
@@ -38,23 +37,18 @@ const css = {
 };
 
 const Card = (props) => {
-  const { movie } = props;
+  const { movie, handleOpenEditModal, handleOpenDeleteDialog } = props;
   const [showBtn, setShowBtn] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-  const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
-  const [openEditDialog, setOpenEditDialog] = useState(false);
-  const [openEditModal, setOpenEditModal] = useState(false);
-
-  const handleOpenEditModal = () => setOpenEditModal(true);
-  const handleCloseEditModal = () => setOpenEditModal(false);
-  const handleOpenDeleteDialog = () => setOpenDeleteDialog(true);
-  const handleCloseDeleteDialog = () => setOpenDeleteDialog(false);
-  const handleOpenEditDialog = () => setOpenEditDialog(true);
-  const handleCloseEditDialog = () => setOpenEditDialog(false);
+  const [movieDetail, setMovieDetail] = useMovieContext();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
+  };
+
+  const handleCardClick = (event) => {
+    setMovieDetail(movie);
   };
 
   const handleClose = () => {
@@ -62,24 +56,14 @@ const Card = (props) => {
     setShowBtn(false);
   };
 
-  const handleEdit = () => {
-    console.log('Editing');
-    handleClose();
-  };
-
-  const handleDelete = () => {
-    console.log('Deleted');
-    handleClose();
-    handleCloseDeleteDialog();
-  };
-
   return (
     <div className="card">
       <div
-        style={{ backgroundImage: `url('${movie.poster}')` }}
+        style={{ backgroundImage: `url('${movie.poster_path}')` }}
         className="card_poster"
         onMouseEnter={() => setShowBtn(true)}
-        onMouseLeave={() => handleClose()}
+        onMouseLeave={handleClose}
+        onClick={handleCardClick}
       >
         {showBtn && (
           <>
@@ -117,48 +101,19 @@ const Card = (props) => {
 
       <div className="card_top">
         <div className="card_title">{movie.title}</div>
-        <div className="card_year">{movie.year}</div>
+        <div className="card_year">{movie.release_date}</div>
       </div>
       <div className="left">
         <Rating
           name="rating"
-          value={movie.rating}
+          value={movie.vote_average}
           precision={0.1}
           readOnly
           size="small"
+          max={10}
         />
       </div>
       <div className="card_genders">{movie.genres.join(',  ')}</div>
-      <ActionResultDialog
-        open={openDeleteDialog}
-        handleClose={handleCloseDeleteDialog}
-        title="DELETE MOVIE"
-        message="Are you sure you want to delete this movie?"
-      >
-        <Button
-          onClick={handleDelete}
-          autoFocus
-          className="btnSubmit"
-          style={{ marginRight: '30px', marginBottom: '30px' }}
-        >
-          CONFIRM
-        </Button>
-      </ActionResultDialog>
-      <ActionResultDialog
-        open={openEditDialog}
-        handleClose={handleCloseEditDialog}
-        title="CONGRATULATIONS"
-        message="The movie has been updated into the database successfully"
-        type="success"
-      />
-      <ActionModal
-        open={openEditModal}
-        action="EDIT"
-        handleClose={handleCloseEditModal}
-        handleAction={handleEdit}
-        handleOpenDialog={handleOpenEditDialog}
-        movieId={movie.id}
-      />
     </div>
   );
 };

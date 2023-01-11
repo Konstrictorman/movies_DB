@@ -6,22 +6,22 @@ import { Box } from '@mui/system';
 import { getMovieById } from '../services/moviesServices';
 import { BeatLoader } from 'react-spinners';
 import { ActionForm } from './ActionForm';
+import { useMovieContext } from './custom/useMovieContext';
 
 export const ActionModal = ({
   action,
   open,
-  handleAction,
   handleClose,
-  movieId,
   handleOpenDialog,
   handleDialogState,
 }) => {
   const [loading, setLoading] = useState(false);
+  const [movieDetail, setMovieDetail] = useMovieContext();
   const initialValues = {
     title: '',
-    releaseDate: null,
-    movieUrl: '',
-    rating: 0,
+    release_date: null,
+    poster_path: '',
+    vote_average: 0.0,
     genres: [],
     runtime: 0,
     overview: '',
@@ -33,10 +33,12 @@ export const ActionModal = ({
       setLoading(true);
       try {
         if (id) {
+          console.log({ id });
           const data = await getMovieById(id);
           setMovie({
             ...data,
           });
+          console.log({ data });
         }
         setLoading(false);
       } catch (e) {
@@ -45,16 +47,16 @@ export const ActionModal = ({
       }
     };
 
-    getMovie(movieId);
-  }, [movieId]);
+    getMovie(movieDetail?.id);
+  }, [movieDetail]);
 
   let children = <BeatLoader color="#36d7b7" className="modalSpinner" />;
   if (!loading) {
     children = (
       <ActionForm
         movie={movie}
+        setMovie={setMovie}
         action={action}
-        handleAction={handleAction}
         handleClose={handleClose}
         handleOpenDialog={handleOpenDialog}
         handleDialogState={handleDialogState}
@@ -91,6 +93,5 @@ export const ActionModal = ({
 ActionModal.propTypes = {
   action: PropTypes.string.isRequired,
   open: PropTypes.bool.isRequired,
-  handleAction: PropTypes.func.isRequired,
   handleClose: PropTypes.func.isRequired,
 };

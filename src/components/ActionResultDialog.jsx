@@ -10,6 +10,8 @@ import { styled } from '@mui/material/styles';
 import { IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import ErrorIcon from '@mui/icons-material/Error';
+import HelpIcon from '@mui/icons-material/Help';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -59,7 +61,22 @@ export const ActionResultDialog = ({
                 fontSize="66px"
                 htmlColor="#f65261"
                 style={{ foregroundColor: 'white' }}
-                outlined
+              />
+            )}
+            {type === 'error' && (
+              <ErrorIcon
+                className="dialogIcon"
+                fontSize="66px"
+                htmlColor="#f65261"
+                style={{ foregroundColor: 'white' }}
+              />
+            )}
+            {type === 'confirmation' && (
+              <HelpIcon
+                className="dialogIcon"
+                fontSize="66px"
+                htmlColor="#f65261"
+                style={{ foregroundColor: 'white' }}
               />
             )}
 
